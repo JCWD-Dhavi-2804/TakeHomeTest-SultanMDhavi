@@ -1,36 +1,45 @@
-"use client";
-import DetailProduct from "@/components/DrugDetailPage/DrugDetail";
-import { DrugItem } from "@/api/api";
-import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import { notFound } from "next/navigation";
+import { useRouter } from "next/navigation";
 
-const DrugDetail = () => {
-  const { id } = useParams() as { id: string };
-  const [drug, setDrug] = useState<DrugItem | null>(null);
+interface Drug {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+}
 
-  useEffect(() => {
-    const fetchDrugDetails = async () => {
-      try {
-        if (id) {
-          const response = await fetch(
-            `https://66a9be8c613eced4eba6105f.mockapi.io/drugs/${id}`
-          );
-          const data: DrugItem = await response.json();
-          setDrug(data);
-        }
-      } catch (error) {
-        console.error("Error fetching drug details:", error);
-      }
-    };
+const fetchDrugDetails = async (id: string): Promise<Drug | null> => {
+  try {
+    const res = await fetch(
+      `https://66a9be8c613eced4eba6105f.mockapi.io/${id}`
+    );
+    if (!res.ok) {
+      return null;
+    }
+    const drug = await res.json();
+    return drug;
+  } catch (error) {
+    console.error("Error fetching drug details:", error);
+    return null;
+  }
+};
 
-    fetchDrugDetails();
-  }, [id]);
+const DrugDetailPage = async ({ params }: { params: { id: string } }) => {
+  const { id } = params;
+  const drug = await fetchDrugDetails(id);
+
+  if (!drug) {
+    notFound();
+  }
 
   return (
-    <div>
-      <h1>Test{id}</h1>
+    <div className="drug-detail-page">
+      <h1>{drug.name}</h1>
+      <p>{drug.description}</p>
+      <p>Price: ${drug.price}</p>
+      <a href="/home">Back to Home</a>
     </div>
   );
 };
 
-export default DrugDetail;
+export default DrugDetailPage;

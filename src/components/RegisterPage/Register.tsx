@@ -1,59 +1,69 @@
 "use client";
+import React from "react";
+import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
+import "./Register.css";
 
-const LoginPage = () => {
+const RegisterPage = () => {
+  const router = useRouter();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    Swal.fire({
+      title: "Success!",
+      text: "You Are Registered!",
+      icon: "success",
+      confirmButtonText: "Ok",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        router.push("/login");
+      }
+    });
+  };
+
   return (
-    <div className="flex gap-1 justify-center items-center pt-28 h-screen bg-green-600">
-      <div className="flex justify-center">
+    <div className="register-container">
+      <div className="register-image-container">
         <img
-          src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?t=st=1721103873~exp=1721107473~hmac=60fc637d34ea02bb6430031c4438d8525abd928356f958998a55bc43ed4b698a&w=740"
+          src="/images/register.png"
           alt="login"
-          className="rounded-md h-auto w-1/2"
+          className="register-image"
         />
       </div>
-      <div className="max-w-md p-6 mr-48 bg-primary border border-gray-300 rounded-md shadow-md">
-        <h2 className="text-3xl text-center text-white font-bold mb-6">
-          Welcome!
-        </h2>
-        <form>
-          <div className="mb-4">
-            <label
-              htmlFor="email"
-              className="block text-sm text-white font-medium"
-            >
+      <div className="register-form-container">
+        <h2 className="register-title">Welcome</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="email" className="form-label">
               Email
             </label>
-            <input
-              type="text"
-              name="email"
-              id="email"
-              className="mt-1 bg-white text-black block w-full p-2 border rounded-md shadow-sm"
-            />
+            <input type="text" name="email" id="email" className="form-input" />
           </div>
-          <div className="mb-4">
-            <label
-              htmlFor="password"
-              className="block text-sm text-white font-medium"
-            >
+          <div className="form-group">
+            <label htmlFor="password" className="form-label">
               Password
             </label>
             <input
               type="password"
               name="password"
               id="password"
-              className="mt-1 bg-white text-black block w-full p-2 border rounded-md shadow-sm"
+              className="form-input"
             />
           </div>
-          <button
-            type="submit"
-            className="w-full px-4 py-2 bg-secondary hover:bg-[#95c0aa] text-white rounded-md"
-          >
-            Login
+          <button type="submit" className="register-button">
+            Sign Up
           </button>
-          <div className="flex flex-col mt-4">
-            <p className="text-white py-2">
+          <div className="register-links">
+            <p className="link-text">
               Already have an account?{" "}
-              <a href="/login" className="text-secondary">
-                Login
+              <a href="/login" className="link">
+                Log In
+              </a>
+            </p>
+            <p className="link-text">
+              Wanna back to home?{" "}
+              <a href="/home" className="link">
+                Home
               </a>
             </p>
           </div>
@@ -63,4 +73,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;
