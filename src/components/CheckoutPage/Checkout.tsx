@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
-import styles from "@/styles/Checkout.module.css";
+import "@/styles/Checkout.module.css";
 
 interface CheckoutFormProps {
   cartItems: { drug: any; quantity: number }[];
@@ -43,7 +43,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
   };
 
   return (
-    <form className={styles.checkoutForm} onSubmit={handleSubmit}>
+    <form className="checkoutForm" onSubmit={handleSubmit}>
       <div>
         <label htmlFor="fullName">Full Name</label>
         <input

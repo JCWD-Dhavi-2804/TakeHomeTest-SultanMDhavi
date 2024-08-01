@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import DrugCard from "@/components/HomePage/DrugCard";
 import Hero from "@/components/HomePage/hero";
 import Navbar from "@/components/HomePage/Navbar";
-import "./Page.css";
+import "./page.css";
 
 interface DrugItem {
   id: string;
