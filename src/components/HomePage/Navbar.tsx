@@ -26,6 +26,9 @@ const Navbar = () => {
 
           {/* navlinks section */}
           <nav className="navbar-links">
+            <a href="/checkout" className="navbar-link">
+              Checkout
+            </a>
             <a href="/login" className="navbar-link">
               Log In
             </a>
