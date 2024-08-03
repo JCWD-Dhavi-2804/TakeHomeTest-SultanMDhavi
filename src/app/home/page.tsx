@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import DrugCard from "@/components/HomePage/DrugCard";
 import Hero from "@/components/HomePage/hero";
 import Navbar from "@/components/HomePage/Navbar";
-import "./page.css";
 
 interface DrugItem {
   id: string;
@@ -46,8 +45,10 @@ const Page = () => {
       <Navbar />
       <Hero />
       <section>
-        <h1 className="page-title">Our Products</h1>
-        <div className="product-grid">
+        <h1 className="text-white bg-green-600 font-bold text-3xl text-center pt-0 md:text-4xl md:pt-0">
+          Our Products
+        </h1>
+        <div className="grid gap-6 p-6 bg-green-600 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {drugs.map((drug, index) => (
             <DrugCard
               key={index}

@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import CartItem from "@/components/CheckoutPage/CartItem";
 import CartSummary from "@/components/CheckoutPage/CartSummary";
 import CheckoutForm from "@/components/CheckoutPage/Checkout";
-import styles from "@/Styles/page.module.css";
 import Navbar from "@/components/HomePage/Navbar";
 
 const CheckoutPage: React.FC = () => {
@@ -29,9 +28,9 @@ const CheckoutPage: React.FC = () => {
   };
 
   return (
-    <div className={styles.checkoutPage}>
+    <div className="max-w-full mx-auto p-5 bg-green-600">
       <Navbar />
-      <h1>Checkout</h1>
+      <h1 className="text-center text-5xl font-bold mb-5 mt-20">Checkout</h1>
       {cartItems.map((item) => (
         <CartItem
           key={item.drug.id}

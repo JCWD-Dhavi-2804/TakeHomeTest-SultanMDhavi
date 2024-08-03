@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "@/Styles/CartSummary.module.css";
 
 interface CartSummaryProps {
   cartItems: { drug: any; quantity: number }[];
@@ -12,9 +11,9 @@ const CartSummary: React.FC<CartSummaryProps> = ({ cartItems }) => {
   );
 
   return (
-    <div className={styles.cartSummary}>
-      <h2>Cart Summary</h2>
-      <p>Total: ${totalAmount.toFixed(2)}</p>
+    <div className="p-2 border-t border-gray-300 text-right bg-green-500">
+      <h2 className="m-0 mb-2.5">Cart Summary</h2>
+      <p className="text-lg font-bold">Total: ${totalAmount.toFixed(2)}</p>
     </div>
   );
 };

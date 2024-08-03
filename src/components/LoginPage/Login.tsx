@@ -2,7 +2,6 @@
 import React from "react";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
-import "./Login.css";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -22,43 +21,63 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-image-container">
-        <img src="/images/login.webp" alt="login" className="login-image" />
+    <div className="flex gap-1 justify-center items-center h-screen bg-green-600">
+      <div className="flex justify-center">
+        <img
+          src="/images/login.webp"
+          alt="login"
+          className="rounded-lg w-4/5"
+        />
       </div>
-      <div className="login-form-container">
-        <h2 className="login-title">Log In!</h2>
+      <div className="max-w-lg p-6 mr-10 bg-white border border-gray-300 rounded-lg shadow-md">
+        <h2 className="text-2xl text-center text-black font-bold mb-6">
+          Log In!
+        </h2>
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="email" className="form-label">
+          <div className="mb-4">
+            <label
+              htmlFor="email"
+              className="block text-sm text-black font-medium"
+            >
               Email
             </label>
-            <input type="text" name="email" id="email" className="form-input" />
+            <input
+              type="text"
+              name="email"
+              id="email"
+              className="mt-1 block w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-opacity-50"
+            />
           </div>
-          <div className="form-group">
-            <label htmlFor="password" className="form-label">
+          <div className="mb-4">
+            <label
+              htmlFor="password"
+              className="block text-sm text-black font-medium"
+            >
               Password
             </label>
             <input
               type="password"
               name="password"
               id="password"
-              className="form-input"
+              className="mt-1 block w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-opacity-50"
             />
           </div>
-          <button type="submit" className="login-button">
+          <button
+            type="submit"
+            className="w-full p-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700"
+          >
             Login
           </button>
-          <div className="login-links">
-            <p className="link-text">
+          <div className="flex flex-col mt-4">
+            <p className="text-black py-2">
               Don&apos;t have an account?{" "}
-              <a href="/register" className="link">
+              <a href="/register" className="text-green-600 hover:underline">
                 Sign Up
               </a>
             </p>
-            <p className="link-text">
+            <p className="text-black py-2">
               Wanna go back to home?{" "}
-              <a href="/home" className="link">
+              <a href="/home" className="text-green-600 hover:underline">
                 Home
               </a>
             </p>

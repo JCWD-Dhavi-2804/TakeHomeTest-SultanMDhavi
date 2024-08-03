@@ -1,6 +1,4 @@
-"use client";
 import { useRouter } from "next/navigation";
-import "./DrugCard.css";
 
 interface DrugCardProps {
   id: string;
@@ -22,13 +20,16 @@ const DrugCard: React.FC<DrugCardProps> = ({
   };
 
   return (
-    <section className="section">
-      <div className="card">
-        <div className="card-content">
-          <p className="card-title">{name}</p>
-          <p className="card-description">{description}</p>
-          <p className="card-price">{price}</p>
-          <button onClick={handleClick} className="detail-button">
+    <section className="py-0">
+      <div className="max-w-xs bg-green-700 rounded-lg shadow-lg m-4">
+        <div className="p-6">
+          <p className="font-bold text-2xl text-white mb-2">{name}</p>
+          <p className="text-gray-100 py-2">{description}</p>
+          <p className="text-gray-100 py-2">{price}</p>
+          <button
+            onClick={handleClick}
+            className="mt-2 mb-2 p-2 bg-blue-600 text-white rounded-md transition-colors duration-300 ease-in-out hover:bg-blue-700"
+          >
             Detail
           </button>
         </div>

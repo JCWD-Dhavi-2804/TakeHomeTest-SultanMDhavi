@@ -1,6 +1,4 @@
-"use client";
 import { useRouter } from "next/navigation";
-import "./Navbar.css";
 
 const Navbar = () => {
   const router = useRouter();
@@ -10,23 +8,32 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar">
-      <div className="navbar-container">
-        <div className="navbar-content">
-          {/* logo section */}
-          <div className="navbar-logo" onClick={handleClick}>
-            <img src="/images/logo.png" alt="logo" />
+    <div className="fixed top-0 left-0 right-0 z-50 bg-white text-green-600 shadow-md">
+      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center py-4">
+          {/* Logo section */}
+          <div className="cursor-pointer" onClick={handleClick}>
+            <img src="/images/logo.png" alt="logo" className="w-1/2" />
           </div>
 
-          {/* navlinks section */}
-          <nav className="navbar-links">
-            <a href="/checkout" className="navbar-link">
+          {/* Navlinks section */}
+          <nav className="hidden lg:flex gap-6">
+            <a
+              href="/checkout"
+              className="text-lg font-bold text-green-600 hover:text-green-800"
+            >
               Checkout
             </a>
-            <a href="/login" className="navbar-link">
+            <a
+              href="/login"
+              className="text-lg font-bold text-green-600 hover:text-green-800"
+            >
               Log In
             </a>
-            <a href="/register" className="navbar-link">
+            <a
+              href="/register"
+              className="text-lg font-bold text-green-600 hover:text-green-800"
+            >
               Register
             </a>
           </nav>

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
-import "@/styles/Checkout.module.css";
 
 interface CheckoutFormProps {
   cartItems: { drug: any; quantity: number }[];
@@ -43,9 +42,14 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
   };
 
   return (
-    <form className="checkoutForm" onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="fullName">Full Name</label>
+    <form
+      className="p-5 border border-gray-300 mt-5 bg-green-500"
+      onSubmit={handleSubmit}
+    >
+      <div className="mb-2.5">
+        <label htmlFor="fullName" className="block mb-1">
+          Full Name
+        </label>
         <input
           type="text"
           id="fullName"
@@ -53,10 +57,13 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
           value={form.fullName}
           onChange={handleChange}
           required
+          className="w-full p-2 box-border text-black"
         />
       </div>
-      <div>
-        <label htmlFor="address">Address</label>
+      <div className="mb-2.5">
+        <label htmlFor="address" className="block mb-1">
+          Address
+        </label>
         <input
           type="text"
           id="address"
@@ -64,10 +71,13 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
           value={form.address}
           onChange={handleChange}
           required
+          className="w-full p-2 box-border text-black"
         />
       </div>
-      <div>
-        <label htmlFor="city">City</label>
+      <div className="mb-2.5">
+        <label htmlFor="city" className="block mb-1">
+          City
+        </label>
         <input
           type="text"
           id="city"
@@ -75,10 +85,13 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
           value={form.city}
           onChange={handleChange}
           required
+          className="w-full p-2 box-border text-black"
         />
       </div>
-      <div>
-        <label htmlFor="postalCode">Postal Code</label>
+      <div className="mb-2.5">
+        <label htmlFor="postalCode" className="block mb-1">
+          Postal Code
+        </label>
         <input
           type="text"
           id="postalCode"
@@ -86,10 +99,13 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
           value={form.postalCode}
           onChange={handleChange}
           required
+          className="w-full p-2 box-border text-black"
         />
       </div>
-      <div>
-        <label htmlFor="cardNumber">Card Number</label>
+      <div className="mb-2.5">
+        <label htmlFor="cardNumber" className="block mb-1">
+          Card Number
+        </label>
         <input
           type="text"
           id="cardNumber"
@@ -97,10 +113,13 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
           value={form.cardNumber}
           onChange={handleChange}
           required
+          className="w-full p-2 box-border text-black"
         />
       </div>
-      <div>
-        <label htmlFor="expirationDate">Expiration Date</label>
+      <div className="mb-2.5">
+        <label htmlFor="expirationDate" className="block mb-1">
+          Expiration Date
+        </label>
         <input
           type="text"
           id="expirationDate"
@@ -108,10 +127,13 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
           value={form.expirationDate}
           onChange={handleChange}
           required
+          className="w-full p-2 box-border text-black"
         />
       </div>
-      <div>
-        <label htmlFor="cvv">CVV</label>
+      <div className="mb-2.5">
+        <label htmlFor="cvv" className="block mb-1">
+          CVV
+        </label>
         <input
           type="text"
           id="cvv"
@@ -119,9 +141,15 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
           value={form.cvv}
           onChange={handleChange}
           required
+          className="w-full p-2 box-border text-black"
         />
       </div>
-      <button type="submit">Submit</button>
+      <button
+        type="submit"
+        className="bg-green-700 text-white border-none p-2.5 cursor-pointer hover:bg-green-800"
+      >
+        Submit
+      </button>
     </form>
   );
 };
